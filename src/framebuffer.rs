@@ -52,4 +52,10 @@ impl Framebuffer {
     pub fn set_current_color(&mut self, color: u32){
         self.current_color = Color::from_hex(color);
     }   
+
+    pub fn render(&self, file_path: &str ) 
+    ->std::io::Result<()>{
+        bmp::write_bmp_file(file_path, &self.buffer ,self. width, self.height);
+        Ok(())
+    }
 }
