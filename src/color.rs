@@ -14,11 +14,19 @@ impl Color {
         }
     }
 
+    pub fn to_array(&self) -> (u8, u8, u8){
+        (self.r, self.g, self.b)
+    }
+
+
     pub fn from_hex(hex: u32) -> Color {
         let r = (hex >> 16 & 0xFF) as u8;
         let g = (hex >> 8 & 0xFF) as u8;
         let b = (hex & 0xFF) as u8;
         Color {r, g, b}
+    }
+    pub fn to_hex(&self) -> u32 {
+        ((self.r as u32)<< 16) | ((self.g as u32) << 8) | (self.b as u32)
     }
 
     pub fn print_me(&self) {
