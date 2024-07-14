@@ -40,15 +40,23 @@ fn main() {
         .map(|&(x, y)| Vec3::new(x as f32, y as f32, 0.0))
         .collect();
 
+    // Polygon 3
+    let poly3 = [
+        (377, 249), (411, 197), (436, 249),
+    ];
+    let poly3_v: Vec<Vec3> = poly3.iter().map(|&(x, y)| Vec3::new(x as f32, y as f32, 0.0)).collect();
+    
     // colors
     let white = Color::from_hex(0xFFFFFF);
     let yellow = Color::from_hex(0xffe100);
     let blue = Color::from_hex(0x001eff);
+    let red = Color::from_hex(0xff0000);
 
     //drawing
     framebuffer.draw_polygon(&poly1_v, white, yellow);
     framebuffer.draw_polygon(&poly2_v, white, blue);
+    framebuffer.draw_polygon(&poly3_v, white, red);
 
     //Render
-    framebuffer.render("poligon2.bmp");
+    framebuffer.render("poligon3.bmp");
 }
